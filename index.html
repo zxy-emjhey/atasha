@@ -3,24 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Your Website Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            animation: slide 5s ease-in-out forwards;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+            75% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="first-visual">
-        <h1>Hi</h1>
-        <p>I miss you already</p>
+    <div class="slide" style="animation-delay: 0s;">
+        <h1 style="font-size: 48px; font-weight: bold;">Hi</h1>
+        <p style="font-size: 24px;">I miss you already</p>
     </div>
-    <div class="second-visual">
-        <h1>Atasha</h1>
-        <p>I love you so much</p>
+    <div class="slide" style="animation-delay: 5s;">
+        <h1 style="font-size: 48px; font-weight: bold;">Atasha,</h1>
+        <p style="font-size: 24px;">I love you so much</p>
     </div>
-    <div class="third-visual">
-        <h1>In Tagalog,</h1>
-        <p>mahal na mahal kita</p>
+    <div class="slide" style="animation-delay: 10s;">
+        <h1 style="font-size: 48px; font-weight: bold;">In Tagalog,</h1>
+        <p style="font-size: 24px;">mahal na mahal kita</p>
     </div>
-    <div class="fourth-visual">
-        <h1>Miss ko na mga yakap mo :(</h1>
+    <div class="slide" style="animation-delay: 15s;">
+        <h1 style="font-size: 48px; font-weight: bold;">Miss ko na mga yakap mo :(</h1>
     </div>
 </body>
 </html>
