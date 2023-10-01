@@ -1,0 +1,61 @@
+/* Reset default browser styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a white background for the entire page */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header (h1) */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style the paragraph (p) */
+p {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Add custom styles for specific elements */
+
+/* Visuals with fade-in animations */
+.visual {
+    opacity: 0; /* Start with opacity set to 0 (fully transparent) */
+    animation: fadeIn 1s ease-in-out forwards; /* Add a fade-in animation */
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Delayed animations for each visual */
+.first-visual {
+    animation-delay: 0.5s; /* Delay the animation for the first visual */
+}
+
+.second-visual {
+    animation-delay: 1s; /* Delay the animation for the second visual */
+}
+
+.third-visual {
+    animation-delay: 1.5s; /* Delay the animation for the third visual */
+}
+
+.fourth-visual {
+    animation-delay: 2s; /* Delay the animation for the fourth visual */
+}
