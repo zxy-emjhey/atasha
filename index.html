@@ -39,30 +39,93 @@
                 transform: translate(-50%, -50%) scale(1.5);
             }
         }
+
+        .text-container {
+            display: inline-block;
+            opacity: 0;
+            animation: pop-up 0.5s forwards ease-in-out;
+        }
+
+        @keyframes pop-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Hide the YouTube player visually */
+        #player {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- Add the audio element with controls and autoplay -->
-    <audio autoplay>
-        <source src="background-music.mp3" type="audio/mpeg">
-        <source src="background-music.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-
     <div class="slide" style="animation-delay: 0s;">
-        <h1 style="font-size: 48px; font-weight: bold;">Hi</h1>
-        <p style="font-size: 24px;">I miss you already</p>
+        <div class="text-container">
+            <h1 style="font-size: 48px; font-weight: bold;">H</h1>
+        </div>
+        <div class="text-container">
+            <h1 style="font-size: 48px; font-weight: bold;">i</h1>
+        </div>
+        <div class="text-container">
+            <h1 style="font-size: 48px; font-weight: bold;">!</h1>
+        </div>
     </div>
     <div class="slide" style="animation-delay: 5s;">
-        <h1 style="font-size: 48px; font-weight: bold;">Atasha,</h1>
+        <h1 style="font-size: 48px; font-weight: bold;">Hey,</h1>
         <p style="font-size: 24px;">I love you so much</p>
     </div>
     <div class="slide" style="animation-delay: 10s;">
-        <h1 style="font-size: 30px; font-weight: bold;">In Tagalog,</h1>
-        <p style="font-size: 24px;">mahal na mahal kita</p>
+        <h1 style="font-size: 27px; font-weight: bold;">You're the love</h1>
+        <p style="font-size: 24px;">I never knew I was searching for</p>
     </div>
     <div class="slide" style="animation-delay: 15s;">
-        <h1 style="font-size: 48px; font-weight: bold;">Miss ko na mga yakap mo :(</h1>
+        <h1 style="font-size: 24px; font-weight: bold;">Miss ko na mga yakap mo :(</h1>
     </div>
+    <div class="slide" style="animation-delay: 20s;">
+        <h1 style="font-size: 30px; font-weight: bold;">Arghhhh</h1>
+    </div>
+    <div class="slide" style="animation-delay: 24.7s;">
+        <h1 style="font-size: 30px; font-weight: bold;">Can you tell me moooon~</h1>
+    </div>
+    <div class="slide" style="animation-delay: 29.5s;">
+        <h1 style="font-size: 30px; font-weight: bold;">Do I have a chance with you?</h1>
+    </div>
+    
+    <!-- YouTube Video Player -->
+    <div id="player"></div>
+    
+    <script>
+        // Load the YouTube IFrame Player API asynchronously
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: 'CLYN7hGnjfs', // Replace with your video's ID
+                playerVars: {
+                    autoplay: 1, // Autoplay the video
+                    controls: 0, // Hide player controls (optional)
+                    modestbranding: 1, // Prevent YouTube logo (optional)
+                    loop: 1, // Loop the video (optional)
+                    playlist: 'CLYN7hGnjfs' // Repeat the video by specifying the same video ID
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo(); // Autoplay when the player is ready
+        }
+    </script>
 </body>
 </html>
