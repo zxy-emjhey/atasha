@@ -61,39 +61,70 @@
         #player {
             display: none;
         }
+
+        /* Add text shadows with adjusted opacity and radius */
+        .text-shadow {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Further decreased shadow properties */
+        }
+
+        /* Typing animation for "Arghhhh..." */
+        .typing-animation {
+            animation: typing 3s steps(12, end) infinite, blink-caret 0.75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid rgba(0, 0, 0, 0.75);
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="slide" style="animation-delay: 0s;">
         <div class="text-container">
-            <h1 style="font-size: 48px; font-weight: bold;">H</h1>
+            <h1 class="text-shadow" style="font-size: 48px; font-weight: bold;">H</h1>
         </div>
         <div class="text-container">
-            <h1 style="font-size: 48px; font-weight: bold;">i</h1>
+            <h1 class="text-shadow" style="font-size: 48px; font-weight: bold;">i</h1>
         </div>
         <div class="text-container">
-            <h1 style="font-size: 48px; font-weight: bold;">!</h1>
+            <h1 class="text-shadow" style="font-size: 48px; font-weight: bold;">!</h1>
         </div>
     </div>
     <div class="slide" style="animation-delay: 5s;">
-        <h1 style="font-size: 48px; font-weight: bold;">Hey,</h1>
-        <p style="font-size: 24px;">I love you so much</p>
+        <h1 class="text-shadow" style="font-size: 17px; font-weight: bold;">Bakit ka nandito? Char,</h1>
+        <p class="text-shadow" style="font-size: 24px;">I love you so much!</p>
     </div>
     <div class="slide" style="animation-delay: 10s;">
-        <h1 style="font-size: 27px; font-weight: bold;">You're the love</h1>
-        <p style="font-size: 24px;">I never knew I was searching for</p>
+        <h1 class="text-shadow" style="font-size: 27px; font-weight: bold;">You're the love</h1>
+        <p class="text-shadow" style="font-size: 24px;">I never knew I was searching for.</p>
     </div>
     <div class="slide" style="animation-delay: 15s;">
-        <h1 style="font-size: 24px; font-weight: bold;">Miss ko na mga yakap mo :(</h1>
+        <h1 class="text-shadow" style="font-size: 24px;">I'm so proud of you, honey!</h1>
     </div>
     <div class="slide" style="animation-delay: 20s;">
-        <h1 style="font-size: 30px; font-weight: bold;">Arghhhh</h1>
+        <h1 class="text-shadow typing-animation" style="font-size: 24px;">Arghhhh...</h1>
     </div>
     <div class="slide" style="animation-delay: 24.7s;">
-        <h1 style="font-size: 30px; font-weight: bold;">Can you tell me moooon~</h1>
+        <h1 class="text-shadow" style="font-size: 19px; font-weight: bold;">mwa mwa mwa mwa~</h1>
     </div>
     <div class="slide" style="animation-delay: 29.5s;">
-        <h1 style="font-size: 30px; font-weight: bold;">Do I have a chance with you?</h1>
+        <h1 class="text-shadow" style="font-size: 30px; font-weight: bold;">lalalalala~</h1>
+    </div>
+    <div class="slide" style="animation-delay: 38s;">
+        <h1 class="text-shadow" style="font-size: 30px; font-weight: bold;">miss na kita!</h1>
     </div>
     
     <!-- YouTube Video Player -->
