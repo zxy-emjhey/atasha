@@ -56,9 +56,9 @@
                 transform: translateY(0);
             }
         }
-        
-        /* Hide the YouTube player visually */
-        #player {
+
+        /* Hide the video player visually */
+        #video-player {
             display: none;
         }
 
@@ -89,74 +89,113 @@
                 border-color: transparent;
             }
         }
+
+        /* Fade-in animation for the video player */
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Apply the fade-in animation to the video player */
+        #video-player {
+            animation: fade-in 3s ease-in-out forwards; /* Fade-in animation for 3 seconds */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="slide" style="animation-delay: 0s;">
         <div class="text-container">
-            <h1 class="text-shadow" style="font-size: 48px; font-weight: bold;">H</h1>
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">i</h1>
         </div>
         <div class="text-container">
-            <h1 class="text-shadow" style="font-size: 48px; font-weight: bold;">i</h1>
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">h</h1>
         </div>
         <div class="text-container">
-            <h1 class="text-shadow" style="font-size: 48px; font-weight: bold;">!</h1>
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">a</h1>
+        </div>
+        <div class="text-container">
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">t</h1>
+        </div>
+        <div class="text-container">
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">e</h1>
+        </div>
+        <div class="text-container">
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">u</h1>
+        </div>
+        <div class="text-container">
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">:</h1>
+        </div>
+        <div class="text-container">
+            <h1 class="text-shadow" style="font-size: 40px; font-weight: bold;">(</h1>
         </div>
     </div>
-    <div class="slide" style="animation-delay: 5s;">
-        <h1 class="text-shadow" style="font-size: 17px; font-weight: bold;">Bakit ka nandito? Char,</h1>
-        <p class="text-shadow" style="font-size: 24px;">I love you so much!</p>
+    <div class="slide" style="animation-delay: 6s;">
+        <h1 class="text-shadow" style="font-size: 20px; font-weight: bold;">I was still hoping..</h1>
+        <p class="text-shadow" style="font-size: 17px;">but thank you for making things clear to me.</p>
     </div>
-    <div class="slide" style="animation-delay: 10s;">
-        <h1 class="text-shadow" style="font-size: 27px; font-weight: bold;">You're the love</h1>
-        <p class="text-shadow" style="font-size: 24px;">I never knew I was searching for.</p>
+    <div class="slide" style="animation-delay: 13s;">
+        <h1 class="text-shadow" style="font-size: 24px;">I'm truly sorry, honey.</h1>
     </div>
-    <div class="slide" style="animation-delay: 15s;">
-        <h1 class="text-shadow" style="font-size: 24px;">I'm so proud of you, honey!</h1>
+    <div class="slide" style="animation-delay: 19s;">
+        <h1 class="text-shadow" style="font-size: 14px;">I want you to know that I'm still here,
+            waiting for you to come back.</h1>
     </div>
-    <div class="slide" style="animation-delay: 20s;">
-        <h1 class="text-shadow typing-animation" style="font-size: 24px;">Arghhhh...</h1>
+    <div class="slide" style="animation-delay: 25s;">
+        <h1 id="name-text" class="text-shadow" style="font-size: 30px; font-weight: bold;">I love you <span id="changing-name">atasha</span>.</h1>
     </div>
-    <div class="slide" style="animation-delay: 24.7s;">
-        <h1 class="text-shadow" style="font-size: 19px; font-weight: bold;">mwa mwa mwa mwa~</h1>
+    <div class="slide" style="animation-delay: 30s;">
+        <h1 class="text-shadow" style="font-size: 30px; font-weight: bold;">miss na kita, sobra:(</h1>
     </div>
-    <div class="slide" style="animation-delay: 29.5s;">
-        <h1 class="text-shadow" style="font-size: 30px; font-weight: bold;">lalalalala~</h1>
+    <div class="slide" style="animation-delay: 35s;">
+        <h1 class="text-shadow" style="font-size: 30px; font-weight: bold;">I love you!</h1>
     </div>
-    <div class="slide" style="animation-delay: 38s;">
-        <h1 class="text-shadow" style="font-size: 30px; font-weight: bold;">miss na kita!</h1>
-    </div>
-    
-    <!-- YouTube Video Player -->
-    <div id="player"></div>
-    
+
+    <!-- Video -->
+    <video autoplay controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" id="video-player">
+        <source src="could-be-something.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- JavaScript to change the name dynamically and display the video after a delay -->
     <script>
-        // Load the YouTube IFrame Player API asynchronously
-        var tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // Function to change the name dynamically
+        function changeName() {
+            const names = ["honey", "baby", "atasha", "LOML"]; // Define a list of names
+            const nameElement = document.getElementById("changing-name");
+            let currentIndex = 0;
 
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                videoId: 'CLYN7hGnjfs', // Replace with your video's ID
-                playerVars: {
-                    autoplay: 1, // Autoplay the video
-                    controls: 0, // Hide player controls (optional)
-                    modestbranding: 1, // Prevent YouTube logo (optional)
-                    loop: 1, // Loop the video (optional)
-                    playlist: 'CLYN7hGnjfs' // Repeat the video by specifying the same video ID
-                },
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
+            // Function to update the name
+            function updateName() {
+                nameElement.textContent = names[currentIndex];
+                currentIndex = (currentIndex + 1) % names.length;
+            }
+
+            // Call the updateName function every few seconds to cycle through names
+            setInterval(updateName, 2000); // Change name every 2 seconds (you can adjust the interval)
         }
 
-        function onPlayerReady(event) {
-            event.target.playVideo(); // Autoplay when the player is ready
+        // Call the changeName function when the document is ready
+        document.addEventListener("DOMContentLoaded", changeName);
+
+        function showVideo() {
+            // Get the video element
+            var video = document.getElementById("video-player");
+
+            // Display the video element
+            video.style.display = "block";
         }
+
+        // Call the showVideo function after a delay
+        setTimeout(showVideo, 40000); // Delay in milliseconds (40 seconds in this case)
     </script>
 </body>
 </html>
